@@ -1,0 +1,66 @@
+# Cursor AI Background Agents Configuration for asSK Project
+
+## Project Overview
+This is a Flutter + .NET + SQL + Docker project using BLoC pattern and MVP architecture.
+
+## Code Standards
+- Follow Flutter best practices and Material Design guidelines
+- Use BLoC pattern for state management in Flutter
+- Implement MVP architecture in .NET backend
+- Use Entity Framework Core for database operations
+- Follow RESTful API design principles
+- Write comprehensive unit tests
+- Use proper error handling and logging
+
+## Background Agents Tasks
+
+### Code Review Agent
+- Review all code changes for best practices
+- Check for security vulnerabilities
+- Ensure proper error handling
+- Verify naming conventions
+- Suggest performance improvements
+
+### Testing Agent
+- Generate unit tests for new features
+- Ensure test coverage is maintained
+- Run automated tests on code changes
+- Validate API endpoints
+
+### Documentation Agent
+- Update README.md when new features are added
+- Generate API documentation
+- Create code comments for complex logic
+- Maintain changelog
+
+### Performance Agent
+- Monitor code performance
+- Suggest optimizations
+- Check for memory leaks
+- Validate database query efficiency
+
+### Security Agent
+- Scan for security vulnerabilities
+- Check for SQL injection risks
+- Validate input sanitization
+- Monitor dependency updates
+
+## File Structure Guidelines
+- Keep Flutter BLoC files organized in blocs/ directory
+- Maintain clear separation between UI and business logic
+- Use proper folder structure for .NET backend
+- Keep Docker configurations in docker/ directory
+
+## Commit Guidelines
+- Use conventional commit messages
+- Include issue numbers when applicable
+- Write descriptive commit messages
+- Keep commits focused and atomic
+
+## Technology Stack
+- Frontend: Flutter with BLoC
+- Backend: .NET Core Web API
+- Database: SQL Server with Entity Framework
+- Containerization: Docker
+- State Management: BLoC pattern
+- Architecture: MVP pattern
