@@ -1,0 +1,39 @@
+✅ Data Safety Form for asSK (MVP with Firebase)
+1. Does your app collect or share any user data?
+
+Yes
+
+2. Types of data collected
+
+App info and performance
+(Crash logs, Diagnostics)
+→ via Firebase Crashlytics
+
+Device or other IDs
+(Android ID, Instance ID)
+→ via Firebase Analytics / Crashlytics
+
+(Optional) Personal info
+If you use Firebase Auth (Google, Email, Phone, etc.), then add:
+
+Email address
+
+3. Is data shared with third parties?
+
+No (you don’t share data outside Firebase/Google, and Firebase counts as “service provider,” not “3rd-party sharing”).
+
+4. Is data encrypted in transit?
+
+Yes (Firebase uses HTTPS/TLS by default).
+
+5. Can users request data deletion?
+
+Yes (through your contact email).
+
+6. Purpose of data collection
+
+Analytics → to understand app usage
+
+App functionality → to enable Firebase Auth / backend services
+
+Crash prevention → to improve stability
