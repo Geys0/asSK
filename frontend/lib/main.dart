@@ -1,32 +1,46 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:assk_frontend/blocs/app_bloc.dart';
-import 'package:assk_frontend/views/home_view.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:go_router/go_router.dart';
+import 'package:assk_connect/core/constants/app_constants.dart';
+import 'package:assk_connect/core/config/app_config.dart';
+import 'package:assk_connect/core/routing/app_router.dart';
+import 'package:assk_connect/shared/themes/app_theme.dart';
+import 'package:assk_connect/core/providers/app_providers.dart';
 
-void main() {
-  runApp(const AsSKApp());
+void main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+  
+  // Initialize app configuration
+  await AppConfig.initialize();
+  
+  runApp(
+    const ProviderScope(
+      child: AsSKConnectApp(),
+    ),
+  );
 }
 
-class AsSKApp extends StatelessWidget {
-  const AsSKApp({super.key});
+class AsSKConnectApp extends ConsumerWidget {
+  const AsSKConnectApp({super.key});
 
   @override
-  Widget build(BuildContext context) {
-    return MultiBlocProvider(
-      providers: [
-        BlocProvider<AppBloc>(
-          create: (context) => AppBloc(),
-        ),
-      ],
-      child: MaterialApp(
-        title: 'asSK',
-        theme: ThemeData(
-          colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
-          useMaterial3: true,
-        ),
-        home: const HomeView(),
-        debugShowCheckedModeBanner: false,
-      ),
+  Widget build(BuildContext context, WidgetRef ref) {
+    final router = ref.watch(appRouterProvider);
+    final themeMode = ref.watch(themeModeProvider);
+    
+    return MaterialApp.router(
+      title: AppConstants.appName,
+      debugShowCheckedModeBanner: false,
+      themeMode: themeMode,
+      theme: AppTheme.lightTheme,
+      darkTheme: AppTheme.darkTheme,
+      routerConfig: router,
+      builder: (context, child) {
+        return MediaQuery(
+          data: MediaQuery.of(context).copyWith(textScaleFactor: 1.0),
+          child: child!,
+        );
+      },
     );
   }
 }
